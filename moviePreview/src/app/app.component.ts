@@ -11,7 +11,8 @@ export class AppComponent implements OnInit{
   title = 'Bar Chart Example in Angular 4';
   constructor(private movieService:MovieService,private fb: FormBuilder){}
   countryForm: FormGroup;
-  countries = ['Day', 'Week']
+  backdropPath:any;
+  timeFormat = ['Day', 'Week']
   // ADD CHART OPTIONS.
   chartOptions = {
     responsive: true    // THIS WILL MAKE THE CHART RESPONSIVE (VISIBLE IN ANY DEVICE).
@@ -44,19 +45,26 @@ export class AppComponent implements OnInit{
     this.countryForm = this.fb.group({
       countryControl: ['Day']
     });
-    this.movieService.trandingMovies(1).subscribe((value)=>{
-      console.log(value.results)
-      value.results.forEach((value)=>{
-        this.labels.push(value.title)
-        this.chartData[0].data.push(value.vote_average)
-      })
-    })
+    this.populateTrendingMovies('day')
   }
   onChangeEvent(value){
     console.log("--->Value",value);
+    this.populateTrendingMovies(value);
   }
 
   populateTrendingMovies(timeFormat){
+    this.movieService.trandingMovies(timeFormat).subscribe((value)=>{
+      console.log(value)
+      if(value){
+        this.labels=[];
+        this.chartData[0].data=[];
+        this.backdropPath=value['results'][0].backdrop_path;
+        value['results'].forEach((value)=>{
+          this.labels.push(value.title)
+          this.chartData[0].data.push(value.vote_average)
+        })
+      }
 
+    })
   }
 }

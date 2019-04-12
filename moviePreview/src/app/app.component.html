@@ -1,20 +1,24 @@
 <div class="header"></div>
 <div class="row">
-    <div class="col-md-3 nav-links">
+    <div class="col-md-2 nav-links">
       <div class="list-item">
         <span>Trending Charts</span>
       </div>
       <div class="list-item">Popular Movies</div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-10">
+      <span *ngIf="backdropPath">
+        <img src="https://image.tmdb.org/t/p/w500{{backdropPath}}">
+      </span>
+
       <div class="row">
         <form [formGroup]="countryForm">
           <select formControlName="countryControl"  (change)="onChangeEvent($event.target.value)">
-            <option [value]="country" *ngFor="let country of countries">             {{country}}</option>
+            <option [value]="time" *ngFor="let time of timeFormat">             {{time}}</option>
           </select>
         </form>
       </div>
-      <div>
+      <div class="row">
         <canvas
           baseChart
           [chartType]="'bar'"

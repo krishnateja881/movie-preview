@@ -7,10 +7,6 @@
       <div class="list-item">Popular Movies</div>
     </div>
     <div class="col-md-10">
-      <span *ngIf="backdropPath">
-        <img src="https://image.tmdb.org/t/p/w500{{backdropPath}}">
-      </span>
-
       <div class="row">
         <form [formGroup]="countryForm">
           <select formControlName="countryControl"  (change)="onChangeEvent($event.target.value)">

@@ -7,10 +7,12 @@ import {ChartsModule} from "ng2-charts";
 import {MovieService} from "./movieService";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PopularMoviesComponent
   ],
   imports: [
     BrowserModule,

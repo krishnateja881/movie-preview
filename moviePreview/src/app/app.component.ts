@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieService} from "./movieService";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class AppComponent implements OnInit{
   title = 'Bar Chart Example in Angular 4';
-  constructor(private movieService:MovieService,private fb: FormBuilder){}
+  constructor(private movieService:MovieService,private fb: FormBuilder,public router: Router){}
   countryForm: FormGroup;
   backdropPath:any;
   timeFormat = ['Day', 'Week']

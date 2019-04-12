@@ -1,20 +1,21 @@
 <div class="header"></div>
 <div class="row">
     <div class="col-md-2 nav-links">
-      <div class="list-item">
+      <div class="list-item" (click)="navigateToTrandingMovie()">
         <span>Trending Charts</span>
       </div>
-      <div class="list-item">Popular Movies</div>
+      <div class="list-item" (click)="navigateToPopularMovies()">Popular Movies</div>
     </div>
     <div class="col-md-10">
-      <div class="row">
+
+      <div class="row" *ngIf="router.url == '/home'">
         <form [formGroup]="countryForm">
           <select formControlName="countryControl"  (change)="onChangeEvent($event.target.value)">
             <option [value]="time" *ngFor="let time of timeFormat">             {{time}}</option>
           </select>
         </form>
       </div>
-      <div class="row">
+      <div class="row" *ngIf="router.url == '/home'">
         <canvas
           baseChart
           [chartType]="'bar'"
@@ -26,6 +27,7 @@
           (chartClick)="onChartClick($event)">
         </canvas>
       </div>
+      <app-popular-movies *ngIf="router.url == '/popularMovies'"></app-popular-movies>
     </div>
   </div>
 

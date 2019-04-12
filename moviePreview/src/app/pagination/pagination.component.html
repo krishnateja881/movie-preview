@@ -1,3 +1,14 @@
-<p>
-  pagination works!
-</p>
+<div class="pagination">
+  <div>
+    <div class="pagination-tools">
+    <span class="page-counts">{{page}} of {{totalPages}}</span>
+    <span (click)="onPrev()" class="page-icons"  style="color: white;cursor: pointer">
+        <i class=" "  aria-hidden="true" [class.disabled]="page==1"> < </i>
+      </span>
+
+    <span  class="" (click)="onNext()" class="page-icons" style="color: white; cursor: pointer">
+        <i class="mdi mdi-chevron-right mdi-24px " aria-hidden="true" [class.disabled]="page==totalPages"> > </i>
+      </span>
+    </div>
+  </div>
+</div>

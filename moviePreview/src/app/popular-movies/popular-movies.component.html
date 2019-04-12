@@ -1,3 +1,16 @@
-<p>
-  popular-movies works!
-</p>
+
+  <div class="row" >
+      <div *ngFor="let movie of moviesList" class="column">
+        <img class="movie-image" src="https://image.tmdb.org/t/p/w500{{movie.backdrop_path}}">
+        <div style="color: white; text-align: center">{{movie.title}}</div>
+      </div>
+  </div>
+  <app-pagination  (goNext)="onNext()"
+                   (goPrev)="onPrev()"
+                   [page]="page"
+                   [count]="totalCount"
+                   [totalPages]="totalPages"
+                   ></app-pagination>
+
+
+

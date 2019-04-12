@@ -23,6 +23,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+
   ],
   providers: [MovieService],
   bootstrap: [AppComponent]

@@ -10,7 +10,9 @@ import {Router} from "@angular/router";
 })
 export class AppComponent implements OnInit{
   title = 'Bar Chart Example in Angular 4';
-  constructor(private movieService:MovieService,private fb: FormBuilder,public router: Router){}
+  constructor(private movieService:MovieService,private fb: FormBuilder,public router: Router){
+    console.log("Url-->",this.router)
+  }
   countryForm: FormGroup;
   backdropPath:any;
   timeFormat = ['Day', 'Week']
@@ -49,7 +51,6 @@ export class AppComponent implements OnInit{
     this.populateTrendingMovies('day')
   }
   onChangeEvent(value){
-    console.log("--->Value",value);
     this.populateTrendingMovies(value);
   }
 
@@ -67,5 +68,12 @@ export class AppComponent implements OnInit{
       }
 
     })
+  }
+  navigateToTrandingMovie(){
+    this.router.navigate(['/home'])
+  }
+  navigateToPopularMovies(){
+    this.router.navigate(['/popularMovies'])
+
   }
 }

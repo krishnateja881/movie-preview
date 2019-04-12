@@ -8,11 +8,13 @@ import {MovieService} from "./movieService";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PopularMoviesComponent
+    PopularMoviesComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

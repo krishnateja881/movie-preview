@@ -40,7 +40,7 @@ export class AppComponent implements OnInit{
    * @param timeFormat
    */
   populateTrendingMovies(timeFormat){
-    this.movieService.trandingMovies(timeFormat).subscribe((value)=>{
+    this.movieService.trendingMovies(timeFormat).subscribe((value)=>{
       if(value){
         this.labels=[];
         this.chartData[0].data=[];

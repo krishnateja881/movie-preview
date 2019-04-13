@@ -10,37 +10,17 @@ import {Router} from "@angular/router";
 })
 export class AppComponent implements OnInit{
   title = 'Bar Chart Example in Angular 4';
-  constructor(private movieService:MovieService,private fb: FormBuilder,public router: Router){
-  }
   countryForm: FormGroup;
   backdropPath:any;
   timeFormat = ['Day', 'Week']
-  // ADD CHART OPTIONS.
-  chartOptions = {
-    responsive: true    // THIS WILL MAKE THE CHART RESPONSIVE (VISIBLE IN ANY DEVICE).
-  }
-
+  chartOptions = {responsive: true}
   labels =  [];
+  chartData = [{label: 'Popular Movies', data: []},];
+  colors = [{ backgroundColor: 'rgba(0, 255, 196, 0.8)'}]
 
-  // STATIC DATA FOR THE CHART IN JSON FORMAT.
-  chartData = [
-    {
-      label: 'Popular Movies',
-      data: []
-    },
-
-  ];
-
-  // CHART COLOR.
-  colors = [
-    { // 2nd Year.
-      backgroundColor: 'rgba(0, 255, 196, 0.8)'
-    }
-  ]
-
-  // CHART CLICK EVENT. vote_average, title
-  onChartClick(event) {
+  constructor(private movieService:MovieService,private fb: FormBuilder,public router: Router){
   }
+
 
   ngOnInit(): void {
     this.countryForm = this.fb.group({

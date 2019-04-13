@@ -1,7 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../node_modules/bootstrap/scss/bootstrap'
 @import "../node_modules/mdi/css/materialdesignicons.min.css"
-//@import "../node_modules/@mdi/font/css/materialdesignicons.min.css"
 
 .body
   background: #3B3B3B
+$light-blue: #00a9ec
+.nav-links
+  text-align: center
+  color: white
+.header
+  padding-top: 5%
+.list-item
+  cursor: pointer
+  &:hover
+    border-bottom: 1px solid black
+    border-radius: 10px
+    background-color: fade_out($light-blue, .95)
+
+  .text-muted
+    opacity: 0.65
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+    max-width: 100%
+.column
+  float: left
+  width: 19.33%
+  padding: 25px
+.movie-image
+  width: 154px
+  height: 188px
+.pagination
+  border: 6px solid black
+  background: black
+  margin-bottom: 6px
+  margin-right: 48px
+.pagination-data
+  padding-right: 83px
+
+.page-counts
+  color: white
+  padding-top: 6px
+  float: right
+.page-icons
+  color: white
+  cursor: pointer
+.disabled
+  cursor: not-allowed
+  opacity: 0.4
+  pointer-events: none !important

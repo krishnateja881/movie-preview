@@ -18,13 +18,17 @@ export class PaginationComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  /**
+   * To get previous page
+   */
   onPrev(): void {
     this.goPrev.emit();
   }
 
   /**
    *  To get next page
-   * @param {boolean} next
+   *
    */
   onNext(): void {
     this.goNext.emit();

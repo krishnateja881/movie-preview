@@ -9,18 +9,16 @@ import {Router} from "@angular/router";
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit{
-  title = 'Bar Chart Example in Angular 4';
   countryForm: FormGroup;
   backdropPath:any;
   timeFormat = ['Day', 'Week']
   chartOptions = {responsive: true}
   labels =  [];
-  chartData = [{label: 'Popular Movies', data: []},];
+  chartData = [{label: 'Trending Movies', data: []},];
   colors = [{ backgroundColor: 'rgba(0, 255, 196, 0.8)'}]
 
   constructor(private movieService:MovieService,private fb: FormBuilder,public router: Router){
   }
-
 
   ngOnInit(): void {
     this.countryForm = this.fb.group({
@@ -28,10 +26,19 @@ export class AppComponent implements OnInit{
     });
     this.populateTrendingMovies('day')
   }
+
+  /**
+   * Getting the value from selected list
+   * @param value
+   */
   onChangeEvent(value){
     this.populateTrendingMovies(value);
   }
 
+  /**
+   * Adding the results data to populate in bar graph
+   * @param timeFormat
+   */
   populateTrendingMovies(timeFormat){
     this.movieService.trandingMovies(timeFormat).subscribe((value)=>{
       if(value){
@@ -46,9 +53,17 @@ export class AppComponent implements OnInit{
 
     })
   }
+
+  /**
+   * Navigate to home page
+   */
   navigateToTrandingMovie(){
     this.router.navigate(['/home'])
   }
+
+  /**
+   * Navigating to popular movies
+   */
   navigateToPopularMovies(){
     this.router.navigate(['/popularMovies'])
 

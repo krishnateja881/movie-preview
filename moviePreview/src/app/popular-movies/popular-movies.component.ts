@@ -16,6 +16,11 @@ export class PopularMoviesComponent implements OnInit {
   ngOnInit() {
     this.populateMoviesList(this.page)
   }
+
+  /**
+   * Adding the results to populate movies
+   * @param page
+   */
   populateMoviesList(page){
     this.movieService.popularMovies(page).subscribe((movies)=>{
       this.moviesList=movies.results

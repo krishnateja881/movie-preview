@@ -5,12 +5,18 @@
         <div style="color: white; text-align: center">{{movie.title}}</div>
       </div>
   </div>
-  <app-pagination  (goNext)="onNext()"
-                   (goPrev)="onPrev()"
-                   [page]="page"
-                   [count]="totalCount"
-                   [totalPages]="totalPages"
-                   ></app-pagination>
+  <div class="row pagination">
+    <div class="col-md-4"></div>
+    <div class="col-md-6"></div>
+    <div class="col-md-2">
+      <app-pagination  (goNext)="onNext()"
+                       (goPrev)="onPrev()"
+                       [page]="page"
+                       [count]="totalCount"
+                       [totalPages]="totalPages"
+      ></app-pagination>
+    </div>
 
+  </div>
 
 

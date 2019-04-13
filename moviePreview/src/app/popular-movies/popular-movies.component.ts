@@ -18,7 +18,6 @@ export class PopularMoviesComponent implements OnInit {
   }
   populateMoviesList(page){
     this.movieService.popularMovies(page).subscribe((movies)=>{
-      console.log("--->",movies)
       this.moviesList=movies.results
       this.totalCount=movies.total_results
       this.totalPages=movies.total_pages;
